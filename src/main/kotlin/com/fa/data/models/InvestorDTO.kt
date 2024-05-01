@@ -6,11 +6,10 @@ import kotlinx.serialization.Serializable
 import org.bson.types.ObjectId
 
 @Serializable
-data class Investor(
-    @SerialName("_id")
-    @Contextual val id: ObjectId?,
+data class InvestorDTO(
+    @SerialName("_id") @Contextual val id: ObjectId? = ObjectId(),
     val fullName: String,
-    //val companies: List<Company>,
+    val companies: List<CompanyDTO> = emptyList(),
     val age: Int,
     val netWorth: Int
 )
